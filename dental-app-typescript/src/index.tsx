@@ -1,3 +1,4 @@
+// index.tsx starts everything. It’s like flipping the power switch on.
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -8,6 +9,7 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
+  // add div -> class -> background colour
   <React.StrictMode>
     <App />
   </React.StrictMode>
