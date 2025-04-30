@@ -51,7 +51,7 @@ const Tooth = ({ id, isAdult, isMissing, fdiNumber, surfaces = [] }: any) => {
 
         {!isAdult && (
           <path
-            d="M50,140 Q60,220 90,260 Q100,270 110,260 Q140,220 150,140 Z"
+            d="M 50 140 Q 60 210 82 216 Q 101 224 118 216 Q 140 212 150 140 Z"
             fill="pink"
             stroke="black"
             strokeWidth="4"
@@ -72,8 +72,15 @@ const Tooth = ({ id, isAdult, isMissing, fdiNumber, surfaces = [] }: any) => {
           ) : null;
         })}
 
+        {/* Overlay: missing tooth marker */}
         {isMissing && (
-          <text x="160" y="60" fontSize="36" fill="gray" fontWeight="bold">
+          <text
+            x="30"
+            y="60"
+            fontSize="50"
+            fill="gray"
+            fontWeight="bold"
+            textAnchor="middle">
             F
           </text>
         )}
