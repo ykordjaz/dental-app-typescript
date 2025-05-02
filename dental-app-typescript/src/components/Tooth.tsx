@@ -20,19 +20,17 @@ const surfacePaths: any = {
 
 const Tooth = ({ id, isAdult, isMissing, fdiNumber, surfaces = [] }: any) => {
   // add logic: if tooth is missing, don't show
-  // add styles for adult tooth and milk tooth
   // check if isMissing is true. If it is, you would return null (which means “don’t show anything”).
   // If it’s not, you’d return the existing JSX code.
   return (
     <div>
       <p>
         {id}
-        {}
         {surfaces}
       </p>
       <svg
-        width="200"
-        height="300"
+        width="80"
+        height="80"
         viewBox="0 0 200 300"
         xmlns="http://www.w3.org/2000/svg"
       >
