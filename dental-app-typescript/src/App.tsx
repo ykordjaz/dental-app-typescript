@@ -9,9 +9,6 @@ function App() {
     // otherwise <TeethChart /> is already in a div and doesn't require this div here
     <div className="App">
       <TeethChart />
-      <div className="bg-blue-200 text-white text-2xl font-bold p-4 rounded">
-      Tailwind is working 🎉
-</div>
     </div>
   );
 }

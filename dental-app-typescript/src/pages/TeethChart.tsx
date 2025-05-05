@@ -21,10 +21,7 @@ const teeth = [
   { id: "14", isMissing: false, surfaces: ["mesial", "distal"], isAdult: true },
   { id: "15", isMissing: false, surfaces: ["mesial", "distal"], isAdult: true },
   {
-    id: "16",
-    isMissing: false,
-    surfaces: ["mesial", "distal", "occlusal"],
-    isAdult: true,
+    id: "16", isMissing: false, surfaces: ["mesial", "distal", "occlusal"], isAdult: true,
   },
   {
     id: "17",
@@ -194,6 +191,150 @@ const teeth = [
     surfaces: ["distal", "occlusal"],
     isAdult: false,
   },
+  {
+    id: "61",
+    isMissing: false,
+    surfaces: ["mesial", "distal", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "62",
+    isMissing: false,
+    surfaces: ["mesial", "distal", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "63",
+    isMissing: false,
+    surfaces: ["mesial", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "64",
+    isMissing: false,
+    surfaces: ["mesial", "distal", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "65",
+    isMissing: false,
+    surfaces: ["distal", "mesial", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "66",
+    isMissing: true,
+    surfaces: ["mesial", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "67",
+    isMissing: true,
+    surfaces: ["distal", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "68",
+    isMissing: true,
+    surfaces: ["distal", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "71",
+    isMissing: false,
+    surfaces: ["mesial", "distal", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "72",
+    isMissing: false,
+    surfaces: ["mesial", "distal", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "73",
+    isMissing: false,
+    surfaces: ["mesial", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "74",
+    isMissing: false,
+    surfaces: ["mesial", "distal", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "75",
+    isMissing: false,
+    surfaces: ["distal", "mesial", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "76",
+    isMissing: true,
+    surfaces: ["mesial", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "77",
+    isMissing: true,
+    surfaces: ["distal", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "78",
+    isMissing: true,
+    surfaces: ["distal", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "81",
+    isMissing: false,
+    surfaces: ["mesial", "distal", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "82",
+    isMissing: false,
+    surfaces: ["mesial", "distal", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "83",
+    isMissing: false,
+    surfaces: ["mesial", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "84",
+    isMissing: false,
+    surfaces: ["mesial", "distal", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "85",
+    isMissing: false,
+    surfaces: ["distal", "mesial", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "86",
+    isMissing: true,
+    surfaces: ["mesial", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "87",
+    isMissing: true,
+    surfaces: ["distal", "occlusal"],
+    isAdult: false,
+  },
+  {
+    id: "88",
+    isMissing: true,
+    surfaces: ["distal", "occlusal"],
+    isAdult: false,
+  },
 ];
 
 // Adult teeth quadrants
@@ -203,9 +344,9 @@ const quadrant3 = teeth.filter((tooth) => tooth.id.startsWith("3"));
 const quadrant4 = teeth.filter((tooth) => tooth.id.startsWith("4"));
 // Milk teeth quadrants
 const quadrant5 = teeth.filter((tooth) => tooth.id.startsWith("5"));
-// const quadrant6 = teeth.filter((tooth) => tooth.id.startsWith("6"));
-// const quadrant7 = teeth.filter((tooth) => tooth.id.startsWith("7"));
-// const quadrant8 = teeth.filter((tooth) => tooth.id.startsWith("8"));
+const quadrant6 = teeth.filter((tooth) => tooth.id.startsWith("6"));
+const quadrant7 = teeth.filter((tooth) => tooth.id.startsWith("7"));
+const quadrant8 = teeth.filter((tooth) => tooth.id.startsWith("8"));
 
 // For each object in the teeth array, use its data to create a <Tooth /> component.
 // That <Tooth /> component is created by calling the Tooth function and passing props
@@ -218,12 +359,23 @@ const quadrant5 = teeth.filter((tooth) => tooth.id.startsWith("5"));
 // Once we have the data in a variable (e.g., const teeth = response.data), you’d map over it just as we are now.
 const TeethChart = () => {
   return (
-    <div className="grid grid-cols-2 gap-4">
-      <div><Quadrant quadrantNumber={1} teeth={quadrant1} /></div>
-      <div><Quadrant quadrantNumber={2} teeth={quadrant2} /></div>
-      <div><Quadrant quadrantNumber={3} teeth={quadrant3} /></div>
-      <div><Quadrant quadrantNumber={4} teeth={quadrant4} /></div>
-    </div>
+    <><div>
+      <h2 className="text-xl font-bold text-center m-3">Adult Teeth</h2>
+      <div className="grid grid-cols-2">
+        <div><Quadrant quadrantNumber={1} teeth={quadrant1} reversed /></div>
+        <div><Quadrant quadrantNumber={2} teeth={quadrant2} /></div>
+        <div><Quadrant quadrantNumber={4} teeth={quadrant4} reversed /></div>
+        <div><Quadrant quadrantNumber={3} teeth={quadrant3} /></div>
+      </div>
+    </div><div>
+        <h2 className="text-xl font-bold text-center m-3">Milk Teeth</h2>
+        <div className="grid grid-cols-2 mb-2">
+          <div><Quadrant quadrantNumber={5} teeth={quadrant5} reversed /></div>
+          <div><Quadrant quadrantNumber={6} teeth={quadrant6} /></div>
+          <div><Quadrant quadrantNumber={7} teeth={quadrant7} reversed /></div>
+          <div><Quadrant quadrantNumber={8} teeth={quadrant8} /></div>
+        </div>
+      </div></>
   );
 };
 
