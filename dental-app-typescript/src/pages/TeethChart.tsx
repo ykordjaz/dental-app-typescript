@@ -337,43 +337,25 @@ const teeth = [
   },
 ];
 
-// Adult teeth quadrants
-const quadrant1 = teeth.filter((tooth) => tooth.id.startsWith("1"));
-const quadrant2 = teeth.filter((tooth) => tooth.id.startsWith("2"));
-const quadrant3 = teeth.filter((tooth) => tooth.id.startsWith("3"));
-const quadrant4 = teeth.filter((tooth) => tooth.id.startsWith("4"));
-// Milk teeth quadrants
-const quadrant5 = teeth.filter((tooth) => tooth.id.startsWith("5"));
-const quadrant6 = teeth.filter((tooth) => tooth.id.startsWith("6"));
-const quadrant7 = teeth.filter((tooth) => tooth.id.startsWith("7"));
-const quadrant8 = teeth.filter((tooth) => tooth.id.startsWith("8"));
+const getQuadrantTeeth = (n: string) => teeth.filter((tooth) => tooth.id.startsWith(n));
 
-// For each object in the teeth array, use its data to create a <Tooth /> component.
-// That <Tooth /> component is created by calling the Tooth function and passing props
-// This is where the data in teeth array gets turned into React components that will actually show up in the UI.
-// Below, "key" helps React identify which items in a list have changed, been added, or removed;
-// This is important because React re-renders components whenever data changes.
-// You need to define a key whenever you render a list of multiple components.
-// if we update the array (for example, by marking a tooth as missing or adding a new one)
-// Normally, we'd first fetch that data from a backend or API
-// Once we have the data in a variable (e.g., const teeth = response.data), you’d map over it just as we are now.
 const TeethChart = () => {
   return (
     <><div>
       <h2 className="text-xl font-bold text-center m-3">Adult Teeth</h2>
       <div className="grid grid-cols-2">
-        <div><Quadrant quadrantNumber={1} teeth={quadrant1} reversed /></div>
-        <div><Quadrant quadrantNumber={2} teeth={quadrant2} /></div>
-        <div><Quadrant quadrantNumber={4} teeth={quadrant4} reversed /></div>
-        <div><Quadrant quadrantNumber={3} teeth={quadrant3} /></div>
+        <div><Quadrant quadrantNumber={1} teeth={getQuadrantTeeth("1")} reversed /></div>
+        <div><Quadrant quadrantNumber={2} teeth={getQuadrantTeeth("2")} /></div>
+        <div><Quadrant quadrantNumber={4} teeth={getQuadrantTeeth("3")} reversed /></div>
+        <div><Quadrant quadrantNumber={3} teeth={getQuadrantTeeth("4")} /></div>
       </div>
     </div><div>
         <h2 className="text-xl font-bold text-center m-3">Milk Teeth</h2>
         <div className="grid grid-cols-2 mb-2">
-          <div><Quadrant quadrantNumber={5} teeth={quadrant5} reversed /></div>
-          <div><Quadrant quadrantNumber={6} teeth={quadrant6} /></div>
-          <div><Quadrant quadrantNumber={7} teeth={quadrant7} reversed /></div>
-          <div><Quadrant quadrantNumber={8} teeth={quadrant8} /></div>
+          <div><Quadrant quadrantNumber={5} teeth={getQuadrantTeeth("5")} reversed /></div>
+          <div><Quadrant quadrantNumber={6} teeth={getQuadrantTeeth("6")} /></div>
+          <div><Quadrant quadrantNumber={7} teeth={getQuadrantTeeth("7")} reversed /></div>
+          <div><Quadrant quadrantNumber={8} teeth={getQuadrantTeeth("8")} /></div>
         </div>
       </div></>
   );
