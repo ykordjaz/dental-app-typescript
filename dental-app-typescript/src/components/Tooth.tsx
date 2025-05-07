@@ -1,6 +1,4 @@
-// inside the curly brackets we have props and the type (typescript) is "any" for now
-// Tooth controls what each individual tooth looks like.
-// we will be adding onClick as props to the Tooth;
+import { useState } from "react";
 
 const surfaceColors: any = {
   mesial: "blue",
@@ -16,12 +14,13 @@ const surfacePaths: any = {
   distal: "M100,80 Q125,60 150,80 L150,140 Q125,160 100,140 Z",
   occlusal: "M75,110 Q100,95 125,110 Q100,125 75,110 Z",
   cervical: "M50,140 L150,140 L145,145 L55,145 Z",
+  lingual: "M50,180 L90,180 L90,220 L50,220 Z",
+  vestibular: "M110,180 L150,180 L150,220 L110,220 Z"
 };
 
 const Tooth = ({ id, isAdult, isMissing, fdiNumber, surfaces = [] }: any) => {
-  // add logic: if tooth is missing, don't show
-  // check if isMissing is true. If it is, you would return null (which means “don’t show anything”).
-  // If it’s not, you’d return the existing JSX code.
+  const [selectedSurface, setSelectedSurface]  = useState<string | null>(null);
+
   return (
     <div>
       <svg
@@ -38,28 +37,36 @@ const Tooth = ({ id, isAdult, isMissing, fdiNumber, surfaces = [] }: any) => {
         />
 
         {/* Milk teeth with pink roots */}
-        {!isAdult && (
+        {isAdult ? (
           <path
             d="M 50 140 Q 60 210 82 216 Q 101 224 118 216 Q 140 212 150 140 Z"
-            fill="pink"
+            fill="white"
             stroke="black"
             strokeWidth="4"
           />
-        )}
+        ):
+        <path
+          d="M 50 140 Q 60 210 82 216 Q 101 224 118 216 Q 140 212 150 140 Z"
+          fill="pink"
+          stroke="black"
+          strokeWidth="4"
+        />
+        }
 
-        {surfaces.map((surface: any) => {
-          const pathData = surfacePaths[surface as any];
-          const color = surfaceColors[surface];
-          return pathData ? (
-            <path
-              key={surface}
-              d={pathData}
-              fill={color}
-              fillOpacity="0.5"
-              stroke="none"
-            />
-          ) : null;
-        })}
+
+        {Object.entries(surfacePaths).map(([surfaceName, surfacePath]: any) => (
+          <path
+            key={surfaceName}
+            d={surfacePath}
+            fill={surfaceColors[surfaceName]}
+            fillOpacity={selectedSurface === surfaceName ? "1" : "0.5"}
+            stroke="none"
+            onClick={() => setSelectedSurface(surfaceName)}
+            cursor="pointer"
+          />
+
+        ))};
+
 
         Overlay: missing tooth marker
         {isMissing && (

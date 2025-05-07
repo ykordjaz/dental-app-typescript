@@ -14,3 +14,15 @@ function App() {
 }
 
 export default App;
+
+// import ToothClickExample from "./components/ToothClickExample";
+// // import CircleClickExample from "./components/CircleClickExample";
+
+// export default function App() {
+//   return (
+//     <div>
+//       <h1>Click the tooth</h1>
+//       <ToothClickExample />
+//     </div>
+//   );
+// }

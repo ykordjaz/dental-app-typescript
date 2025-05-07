@@ -1,5 +1,4 @@
 import Tooth from "./Tooth";
-import TeethChart from "../pages/TeethChart";
 
 // type ToothType = {
 //   id: string;
